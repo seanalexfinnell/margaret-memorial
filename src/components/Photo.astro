@@ -1,0 +1,15 @@
+---
+/**
+ * A photograph in the essay.
+ * size: "full" runs edge to edge, "wide" breaks out of the text column, "inset" sits in the column.
+ * Without `src` it renders as a toned block of the right shape until the family's photos arrive.
+ */
+interface Props { src?: string; alt?: string; caption?: string; ratio?: string; size?: "full" | "wide" | "inset"; eager?: boolean }
+const { src, alt = "", caption, ratio = "3 / 2", size = "wide", eager = false } = Astro.props;
+---
+<figure class={`photo photo-${size}`} style={`--ratio:${ratio}`}>
+  <div class="photo-plate" data-zoom>
+    {src && <img src={src} alt={alt} loading={eager ? "eager" : "lazy"} decoding="async" />}
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

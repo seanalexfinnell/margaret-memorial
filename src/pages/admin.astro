@@ -1,0 +1,86 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="Review memories · Margaret">
+  <style>
+    .admin { max-width: 860px; margin: 0 auto; padding-block: 48px 96px; display: flex; flex-direction: column; gap: 28px; }
+    .admin h1 { font: 400 clamp(2.2rem, 5vw, 3.2rem)/1 var(--f-display); }
+    .tabs { display: flex; gap: 10px; flex-wrap: wrap; }
+    .tabs button[aria-pressed="true"] { background: var(--ink); color: var(--ivory); }
+    .item { border-top: 1px solid color-mix(in srgb, var(--gilt) 45%, transparent); padding-block: 22px; display: flex; flex-direction: column; gap: 12px; }
+    .item textarea { min-height: 7em; }
+    .item .meta { font: 500 .68rem/1.4 var(--f-label); letter-spacing: .18em; text-transform: uppercase; color: var(--heather); }
+    .item .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .item .pics { display: flex; gap: 8px; flex-wrap: wrap; }
+    .item .pics img { height: 120px; width: auto; }
+    .pill { font: 500 .62rem/1 var(--f-label); letter-spacing: .16em; text-transform: uppercase; padding: 5px 8px; border: 1px solid currentColor; margin-left: 8px; }
+    .pill.pending { color: var(--copper); } .pill.approved { color: var(--heather); } .pill.hidden { color: var(--ink-soft); }
+  </style>
+  <main class="admin shell">
+    <div class="stack" style="display:flex;flex-direction:column;gap:10px">
+      <span class="label">Family only</span>
+      <h1>Review memories</h1>
+      <p style="color:var(--ink-soft)">Nothing appears on the site until it’s approved here. You can fix a typo before approving.</p>
+    </div>
+    <div class="tabs" role="group" aria-label="Filter">
+      <button class="btn ghost" data-filter="pending" aria-pressed="true">Waiting</button>
+      <button class="btn ghost" data-filter="approved" aria-pressed="false">On the site</button>
+      <button class="btn ghost" data-filter="hidden" aria-pressed="false">Hidden</button>
+    </div>
+    <p class="status" data-admin-status></p>
+    <div data-admin-list></div>
+  </main>
+  <script>
+    type Row = { id: string; created_at: string; name: string; relation?: string; place?: string; body: string; status: string; reviewed_by?: string; photos: { key: string }[] };
+    const listEl = document.querySelector<HTMLElement>("[data-admin-list]")!;
+    const statusEl = document.querySelector<HTMLElement>("[data-admin-status]")!;
+    let rows: Row[] = [];
+    let filter = "pending";
+    const esc = (s = "") => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+
+    async function load() {
+      const res = await fetch("/api/admin/memories");
+      if (res.status === 401) { statusEl.textContent = "Please sign in through Cloudflare Access to review memories."; return; }
+      rows = await res.json();
+      render();
+    }
+    function render() {
+      const shown = rows.filter((r) => r.status === filter);
+      const waiting = rows.filter((r) => r.status === "pending").length;
+      statusEl.textContent = waiting ? `${waiting} waiting for review.` : "Nothing waiting for review.";
+      listEl.innerHTML = shown.length ? shown.map((r) => `
+        <article class="item" data-id="${r.id}">
+          <div class="meta">${esc(r.name)}${r.relation ? " · " + esc(r.relation) : ""}${r.place ? " · from " + esc(r.place) : ""} · ${new Date(r.created_at + "Z").toLocaleString()}<span class="pill ${r.status}">${r.status}</span></div>
+          <textarea aria-label="Memory text">${esc(r.body)}</textarea>
+          ${r.photos.length ? `<div class="pics">${r.photos.map((p) => `<img src="/api/admin/photo/${encodeURIComponent(p.key)}" alt="">`).join("")}</div>` : ""}
+          <div class="actions">
+            ${r.status !== "approved" ? `<button class="btn" data-act="approved">Approve</button>` : `<button class="btn ghost" data-act="save">Save edits</button>`}
+            ${r.status !== "hidden" ? `<button class="btn ghost" data-act="hidden">Hide</button>` : `<button class="btn ghost" data-act="pending">Move back to waiting</button>`}
+          </div>
+        </article>`).join("") : `<p class="empty">Nothing here.</p>`;
+    }
+    listEl.addEventListener("click", async (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLButtonElement>("button[data-act]");
+      if (!btn) return;
+      const item = btn.closest<HTMLElement>(".item")!;
+      const id = item.dataset.id!;
+      const act = btn.dataset.act!;
+      const body = item.querySelector("textarea")!.value;
+      btn.disabled = true;
+      const res = await fetch(`/api/admin/memories/${id}`, {
+        method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify(act === "save" ? { body } : { status: act, body }),
+      });
+      if (!res.ok) { statusEl.textContent = "That didn’t save. Please try again."; btn.disabled = false; return; }
+      const row = rows.find((r) => r.id === id)!;
+      row.body = body; if (act !== "save") row.status = act;
+      render();
+    });
+    document.querySelectorAll<HTMLButtonElement>("[data-filter]").forEach((b) => b.addEventListener("click", () => {
+      filter = b.dataset.filter!;
+      document.querySelectorAll("[data-filter]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      render();
+    }));
+    load();
+  </script>
+</Base>
