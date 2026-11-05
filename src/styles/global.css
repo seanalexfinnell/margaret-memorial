@@ -151,3 +151,29 @@ footer p { font: 500 0.66rem/1.6 var(--f-label); letter-spacing: 0.22em; text-tr
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ---------- top navigation ---------- */
+.site-nav {
+  position: fixed; inset: 0 0 auto; z-index: 20;
+  display: flex; justify-content: center; gap: clamp(20px, 4vw, 36px);
+  padding: calc(env(safe-area-inset-top, 0px) + 12px) var(--gutter-r) 12px var(--gutter-l);
+  background: color-mix(in srgb, var(--ivory) 86%, transparent);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  transition: transform 0.4s ease;
+}
+.site-nav.is-hidden { transform: translateY(-100%); }
+.site-nav a {
+  font: 500 0.7rem/1.4 var(--f-label); letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none; padding-block: 4px;
+  border-bottom: 1px solid transparent;
+}
+.site-nav a:hover { color: var(--ink); }
+.site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--gilt); }
+.cover { padding-top: calc(env(safe-area-inset-top, 0px) + 45px); }
+
+/* ---------- memory book ---------- */
+.book-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding-block: calc(env(safe-area-inset-top, 0px) + clamp(96px, 14vw, 160px)) clamp(24px, 4vw, 40px); }
+.book-head .lady { font: italic 400 clamp(1.3rem, 2.4vw, 1.8rem)/1 var(--f-display); color: var(--heather); }
+.book-head h1 { font: 400 clamp(3.4rem, 10vw, 7rem)/0.9 var(--f-display); letter-spacing: -0.02em; }
+.book-head p { color: var(--ink-soft); max-width: 30em; }
+.to-book a { font-style: italic; }

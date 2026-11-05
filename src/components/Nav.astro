@@ -1,0 +1,12 @@
+---
+/** The two places on the site. `current` marks the page you're on. */
+interface Props { current: "obituary" | "memories" }
+const { current } = Astro.props;
+---
+<nav class="site-nav" aria-label="Site">
+  <a href="/" aria-current={current === "obituary" ? "page" : undefined}>Obituary</a>
+  <a href="/memories" aria-current={current === "memories" ? "page" : undefined}>Memory book</a>
+</nav>
+<script>
+  import "../scripts/nav.ts";
+</script>

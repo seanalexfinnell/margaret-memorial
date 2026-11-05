@@ -1,12 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
 import Photo from "../components/Photo.astro";
+import Nav from "../components/Nav.astro";
 
-const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA"; // Cloudflare test key
 // Charity not chosen yet. Set these once the family decides.
 const CHARITY = { name: "", url: "" };
 ---
 <Base title="Margaret Stewart Kennedy-Cairns, 1929 to 2026">
+  <Nav current="obituary" />
 
   <header class="cover">
     <div class="cover-media" data-cover-media>
@@ -109,41 +110,9 @@ const CHARITY = { name: "", url: "" };
       <p><i>Some things, it seems, never change.</i></p>
     </section>
 
-    <section class="col memories" id="memories">
-      <div class="memory-list" data-memory-list></div>
-
-      <form class="memory-form" data-memory-form novalidate>
-        <h3>Share a memory of Margaret</h3>
-        <p class="hint">The family reads each one before it appears here.</p>
-        <div class="field">
-          <label for="m-name">Your name</label>
-          <input id="m-name" name="name" type="text" autocomplete="name" required maxlength="120" />
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label for="m-relation">How you knew her</label>
-            <input id="m-relation" name="relation" type="text" maxlength="120" placeholder="Niece, neighbour, friend" />
-          </div>
-          <div class="field">
-            <label for="m-place">Writing from</label>
-            <input id="m-place" name="place" type="text" maxlength="120" placeholder="Glasgow" />
-          </div>
-        </div>
-        <div class="field">
-          <label for="m-body">Your memory</label>
-          <textarea id="m-body" name="body" required maxlength="5000"></textarea>
-        </div>
-        <div class="field file-pick">
-          <label for="m-photos">Photographs (up to four)</label>
-          <input id="m-photos" name="photos" type="file" accept="image/*" multiple />
-          <div class="thumbs" data-thumbs></div>
-        </div>
-        <div class="hp" aria-hidden="true"><label for="m-website">Website</label><input id="m-website" name="website" type="text" tabindex="-1" autocomplete="off" /></div>
-        <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-theme="light"></div>
-        <button class="btn" type="submit">Send to the family</button>
-        <p class="status" role="status" data-status></p>
-      </form>
-    </section>
+    <div class="col prose to-book">
+      <p><a href="/memories">Share a memory of Margaret, or read what others have written, in the memory book.</a></p>
+    </div>
 
     {CHARITY.name && (
       <section class="col prose tribute">
@@ -157,9 +126,7 @@ const CHARITY = { name: "", url: "" };
     <p>Margaret Stewart Kennedy-Cairns · Glasgow 1929 · Montreal 2026</p>
   </footer>
 
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script>
     import "../scripts/motion.ts";
-    import "../scripts/memories.ts";
   </script>
 </Base>
