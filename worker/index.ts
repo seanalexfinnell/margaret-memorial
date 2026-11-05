@@ -13,6 +13,7 @@ interface Env {
   ACCESS_TEAM_DOMAIN: string; // e.g. "cairns-family.cloudflareaccess.com"
   ACCESS_AUD: string; // Access application audience tag
   DEV_ADMIN?: string;
+  ADMIN_PASSWORD?: string; // simple alternative to Cloudflare Access: browser sign-in prompt, any username
 }
 
 const MAX_PHOTOS = 4;
@@ -34,6 +35,10 @@ export default {
     const { pathname } = url;
 
     try {
+      if (pathname === "/admin" || pathname === "/admin/" || pathname === "/admin.html") {
+        if (!(await requireAdmin(req, env))) return askForPassword(env);
+        return env.ASSETS.fetch(req);
+      }
       if (pathname === "/api/memories" && req.method === "GET") return await listApproved(env);
       if (pathname === "/api/memories" && req.method === "POST") return await submit(req, env);
       if (pathname.startsWith("/api/photo/") && req.method === "GET")
@@ -41,7 +46,7 @@ export default {
 
       if (pathname.startsWith("/api/admin/")) {
         const reviewer = await requireAdmin(req, env);
-        if (!reviewer) return json({ error: "Sign in through Cloudflare Access to review memories." }, 401);
+        if (!reviewer) return env.ADMIN_PASSWORD ? askForPassword(env) : json({ error: "Sign in through Cloudflare Access to review memories." }, 401);
         if (pathname === "/api/admin/memories" && req.method === "GET") return await listAll(env);
         if (pathname.startsWith("/api/admin/photo/") && req.method === "GET")
           return await servePhoto(decodeURIComponent(pathname.slice("/api/admin/photo/".length)), env, true);
@@ -180,6 +185,7 @@ async function review(id: string, req: Request, env: Env, reviewer: string) {
  */
 async function requireAdmin(req: Request, env: Env): Promise<string | null> {
   if (env.DEV_ADMIN === "1") return "local-dev";
+  if (env.ADMIN_PASSWORD) return passwordOk(req, env.ADMIN_PASSWORD) ? "family" : null;
   if (!env.ACCESS_TEAM_DOMAIN || !env.ACCESS_AUD) return null;
   const token = req.headers.get("Cf-Access-Jwt-Assertion");
   if (!token) return null;
@@ -211,3 +217,28 @@ function b64urlBytes(s: string) {
   return Uint8Array.from(b, (c) => c.charCodeAt(0));
 }
 const b64urlText = (s: string) => new TextDecoder().decode(b64urlBytes(s));
+
+function askForPassword(env: Env) {
+  if (!env.ADMIN_PASSWORD && !env.ACCESS_AUD) return new Response("Admin is not set up yet.", { status: 403 });
+  return new Response("Password required.", {
+    status: 401,
+    headers: { "www-authenticate": 'Basic realm="Margaret memorial admin", charset="UTF-8"', "cache-control": "no-store" },
+  });
+}
+
+function passwordOk(req: Request, expected: string) {
+  const h = req.headers.get("authorization") || "";
+  if (!h.startsWith("Basic ")) return false;
+  let given = "";
+  try {
+    const decoded = new TextDecoder().decode(Uint8Array.from(atob(h.slice(6)), (c) => c.charCodeAt(0)));
+    given = decoded.slice(decoded.indexOf(":") + 1);
+  } catch {
+    return false;
+  }
+  const a = new TextEncoder().encode(given);
+  const b = new TextEncoder().encode(expected);
+  let diff = a.length ^ b.length;
+  for (let i = 0; i < b.length; i++) diff |= (a[i] ?? 0) ^ b[i];
+  return diff === 0;
+}

@@ -8,7 +8,7 @@
     "directory": "./dist",
     "binding": "ASSETS",
     "not_found_handling": "404-page",
-    "run_worker_first": ["/api/*"]
+    "run_worker_first": ["/api/*", "/admin", "/admin/", "/admin.html"]
   },
   "d1_databases": [
     { "binding": "DB", "database_name": "margaret-memorial", "database_id": "43b74966-d7a3-4e5c-8c19-e1733e67468a" }
