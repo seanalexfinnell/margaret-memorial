@@ -5,19 +5,25 @@ A memorial site for Margaret Stewart Kennedy-Cairns (1929 to 2026). Astro static
 ## Local
 
     npm install
+    cp .dev.vars.example .dev.vars
     npx wrangler d1 execute margaret-memorial --local --file=schema.sql
-    npm run build && npx wrangler dev --var DEV_ADMIN:1
+    npm run build && npx wrangler dev
 
 Open http://localhost:8787 for the site and http://localhost:8787/admin to review memories.
 
-## First deploy (needs the family's Cloudflare account)
+## Cloudflare
 
-1. `npx wrangler d1 create margaret-memorial` and paste the `database_id` into `wrangler.jsonc`.
-2. `npx wrangler d1 execute margaret-memorial --remote --file=schema.sql`
-3. `npx wrangler r2 bucket create margaret-memorial-photos`
-4. Create a Turnstile widget for margaret.memorial. Put the site key in `.env` as `PUBLIC_TURNSTILE_SITE_KEY`, and run `npx wrangler secret put TURNSTILE_SECRET`.
-5. In Zero Trust, add an Access application covering `margaret.memorial/admin*` and `margaret.memorial/api/admin/*`, allowing only the family's emails. Put the team domain and audience tag in `ACCESS_TEAM_DOMAIN` and `ACCESS_AUD`.
-6. `npm run deploy`, then add margaret.memorial as a custom domain on the Worker.
+Already created: D1 database `margaret-memorial` (schema applied) and R2 bucket `margaret-memorial-photos`.
+Deploys run through Workers Builds on every push to `main` (build `npm run build`, deploy `npx wrangler deploy`).
+The Worker serves margaret.memorial as a custom domain.
+
+Settings that live in the dashboard:
+
+- Worker > Settings > Variables and Secrets: `TURNSTILE_SECRET` (secret), `ACCESS_TEAM_DOMAIN`, `ACCESS_AUD`.
+- Worker > Settings > Builds > Build variables: `PUBLIC_TURNSTILE_SITE_KEY`.
+- Zero Trust > Access: a self-hosted application covering `margaret.memorial/admin` and `margaret.memorial/api/admin`, allowing only family emails.
+
+Until Turnstile is set, the memory form refuses submissions. Until Access is set, the admin page refuses everyone.
 
 ## Content still to come
 
