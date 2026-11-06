@@ -177,3 +177,6 @@ footer p { font: 500 0.66rem/1.6 var(--f-label); letter-spacing: 0.22em; text-tr
 .book-head h1 { font: 400 clamp(3.4rem, 10vw, 7rem)/0.9 var(--f-display); letter-spacing: -0.02em; }
 .book-head p { color: var(--ink-soft); max-width: 30em; }
 .to-book a { font-style: italic; }
+.cover.plain { padding-top: calc(env(safe-area-inset-top, 0px) + clamp(72px, 12vw, 140px)); }
+.cover.plain .cover-title { padding-block: 0 clamp(8px, 2vw, 24px); }
+.hush { padding-block: clamp(40px, 7vw, 88px); }
