@@ -1,0 +1,51 @@
+---
+/** A quiet play/pause control for the pipe tune. Never autoplays. */
+---
+<div class="tune" data-reveal>
+  <button class="tune-btn" type="button" aria-label="Play “The Dark Island” on the pipes" aria-pressed="false">
+    <svg class="i-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 2.2v7.6L9.8 6z" /></svg>
+    <svg class="i-pause" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.2 2.2h1.9v7.6H3.2zM6.9 2.2h1.9v7.6H6.9z" /></svg>
+  </button>
+  <span class="tune-text">
+    <span class="tune-name">The Dark Island</span>
+    <span class="tune-meta">on the pipes · <span class="tune-time">3:09</span></span>
+  </span>
+  <span class="tune-bar" aria-hidden="true"><span></span></span>
+  <audio preload="none" src="/audio/dark-island.mp3"></audio>
+</div>
+
+<script>
+  const root = document.querySelector<HTMLElement>(".tune");
+  if (root) {
+    const audio = root.querySelector("audio")!;
+    const btn = root.querySelector<HTMLButtonElement>(".tune-btn")!;
+    const time = root.querySelector<HTMLElement>(".tune-time")!;
+    const bar = root.querySelector<HTMLElement>(".tune-bar span")!;
+    const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+    const total = "3:09";
+
+    const sync = () => {
+      const playing = !audio.paused;
+      root.classList.toggle("is-playing", playing);
+      btn.setAttribute("aria-pressed", String(playing));
+      btn.setAttribute("aria-label", `${playing ? "Pause" : "Play"} “The Dark Island” on the pipes`);
+    };
+
+    btn.addEventListener("click", () => (audio.paused ? audio.play() : audio.pause()));
+    audio.addEventListener("play", sync);
+    audio.addEventListener("pause", sync);
+    audio.addEventListener("timeupdate", () => {
+      const d = audio.duration || 189;
+      bar.style.transform = `scaleX(${audio.currentTime / d})`;
+      root.classList.toggle("has-progress", audio.currentTime > 0);
+      time.textContent = audio.currentTime > 0 ? `${fmt(audio.currentTime)} / ${total}` : total;
+    });
+    audio.addEventListener("ended", () => {
+      audio.currentTime = 0;
+      bar.style.transform = "scaleX(0)";
+      root.classList.remove("has-progress");
+      time.textContent = total;
+      sync();
+    });
+  }
+</script>

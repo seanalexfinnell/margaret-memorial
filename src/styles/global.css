@@ -180,3 +180,22 @@ footer p { font: 500 0.66rem/1.6 var(--f-label); letter-spacing: 0.22em; text-tr
 .cover.plain { padding-top: calc(env(safe-area-inset-top, 0px) + clamp(72px, 12vw, 140px)); }
 .cover.plain .cover-title { padding-block: 0 clamp(8px, 2vw, 24px); }
 .hush { padding-block: clamp(40px, 7vw, 88px); }
+
+/* ---------- the tune: a quiet play/pause control under her name ---------- */
+.tune { position: relative; display: inline-flex; align-items: center; gap: 12px; margin-top: 10px; padding-bottom: 8px; }
+.tune-btn {
+  appearance: none; flex: none; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--gilt) 70%, transparent); background: transparent; color: var(--ink);
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+.tune-btn:hover { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+.tune-btn svg { width: 12px; height: 12px; fill: currentColor; }
+.tune-btn .i-play { transform: translateX(1px); }
+.tune .i-pause, .tune.is-playing .i-play { display: none; }
+.tune.is-playing .i-pause { display: block; }
+.tune-text { display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 2px; }
+.tune-name { font: italic 400 1.05rem/1.1 var(--f-body); color: var(--ink); }
+.tune-meta { font: 500 0.62rem/1.3 var(--f-label); letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.tune-bar { position: absolute; left: 50px; right: 0; bottom: 0; height: 1px; background: color-mix(in srgb, var(--ink) 10%, transparent); opacity: 0; transition: opacity 0.4s; }
+.tune.is-playing .tune-bar, .tune.has-progress .tune-bar { opacity: 1; }
+.tune-bar span { display: block; height: 100%; background: var(--gilt); transform: scaleX(0); transform-origin: left; transition: transform 0.25s linear; }
