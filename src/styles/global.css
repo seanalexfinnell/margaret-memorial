@@ -206,3 +206,4 @@ footer p { font: 500 0.66rem/1.6 var(--f-label); letter-spacing: 0.22em; text-tr
 .tune-bar { position: absolute; left: 60px; right: 18px; bottom: 6px; height: 1px; background: color-mix(in srgb, var(--ink) 10%, transparent); opacity: 0; transition: opacity 0.4s; }
 .tune.is-playing .tune-bar, .tune.has-progress .tune-bar { opacity: 1; }
 .tune-bar span { display: block; height: 100%; background: var(--gilt); transform: scaleX(0); transform-origin: left; transition: transform 0.25s linear; }
+.prose .sep { text-align: center; color: var(--heather); letter-spacing: 0.6em; margin: 2.4em 0; }
