@@ -36,13 +36,11 @@ if (!reduce) {
   document.fonts.ready.then(() => {
     const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
     intro.from("[data-cover-media] img", { scale: 1.08, duration: 2.4, ease: "power2.out" }, 0);
-    // Arriving through a page transition, the title has already morphed into place: don't animate it twice.
-    const arrived = document.documentElement.dataset.vt === "1";
-    if (!arrived) document.querySelectorAll<HTMLElement>(".cover [data-split]").forEach((el) => {
+    document.querySelectorAll<HTMLElement>(".cover [data-split]").forEach((el) => {
       const split = SplitText.create(el, { type: "words,chars", mask: "chars" });
       intro.from(split.chars, { yPercent: 110, duration: 1.4, stagger: 0.06 }, 0.3);
     });
-    intro.from(arrived ? ".cover .fullname" : ".cover [data-reveal]", { opacity: 0, y: 14, duration: 1.2, stagger: 0.12 }, arrived ? 0.3 : 0.8);
+    intro.from(".cover [data-reveal]", { opacity: 0, y: 14, duration: 1.2, stagger: 0.12 }, 0.8);
 
     // Photographs settle from a slight zoom as they cross the screen.
     document.querySelectorAll<HTMLElement>("main .photo-plate").forEach((plate) => {

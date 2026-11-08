@@ -14,6 +14,7 @@ interface Env {
   ACCESS_AUD: string; // Access application audience tag
   DEV_ADMIN?: string;
   ADMIN_PASSWORD?: string; // simple alternative to Cloudflare Access: browser sign-in prompt, any username
+  SITE_PASSWORD?: string; // family password for the whole site (a secret, never in this public repo). Unset = site locked.
 }
 
 const MAX_PHOTOS = 4;
@@ -35,6 +36,10 @@ export default {
     const { pathname } = url;
 
     try {
+      // The whole site sits behind one family password until the family decides to open it.
+      if (pathname === "/__enter" && req.method === "POST") return await enter(req, env);
+      if (!(await hasPass(req, env))) return gatePage(false, pathname.startsWith("/api/") ? 401 : 200);
+
       if (pathname === "/admin" || pathname === "/admin/" || pathname === "/admin.html") {
         if (!(await requireAdmin(req, env))) return askForPassword(env);
         return env.ASSETS.fetch(req);
@@ -241,4 +246,62 @@ function passwordOk(req: Request, expected: string) {
   let diff = a.length ^ b.length;
   for (let i = 0; i < b.length; i++) diff |= (a[i] ?? 0) ^ b[i];
   return diff === 0;
+}
+
+/* ---------- family password gate ---------- */
+
+const GATE_COOKIE = "mm_pass";
+
+async function passToken(env: Env) {
+  const data = new TextEncoder().encode("margaret.memorial|" + (env.SITE_PASSWORD || ""));
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function hasPass(req: Request, env: Env) {
+  if (!env.SITE_PASSWORD) return false;
+  const cookie = req.headers.get("cookie") || "";
+  const m = cookie.match(new RegExp("(?:^|;\\s*)" + GATE_COOKIE + "=([a-f0-9]{64})"));
+  return !!m && m[1] === (await passToken(env));
+}
+
+async function enter(req: Request, env: Env) {
+  const form = await req.formData().catch(() => null);
+  const given = clean(form?.get("password"), 200).toLowerCase();
+  if (!env.SITE_PASSWORD || given !== env.SITE_PASSWORD.toLowerCase()) return gatePage(true, 401);
+  return new Response(null, {
+    status: 303,
+    headers: {
+      location: "/",
+      "set-cookie": `${GATE_COOKIE}=${await passToken(env)}; Path=/; Max-Age=${60 * 60 * 24 * 90}; HttpOnly; Secure; SameSite=Lax`,
+      "cache-control": "no-store",
+    },
+  });
+}
+
+function gatePage(wrong: boolean, status: number) {
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#f8f3ee"><title>Margaret</title><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Jost:wght@500&display=swap">
+<style>
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;display:grid;place-items:center;background:#f8f3ee;color:#241c25;font:400 1.2rem/1.6 "EB Garamond",Georgia,serif;padding:24px}
+main{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;width:100%;max-width:22rem;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.lady{font:italic 400 clamp(1.3rem,2.4vw,1.8rem)/1 "Bodoni Moda",Georgia,serif;color:#7a6180;margin-bottom:-10px}
+h1{margin:0;font:400 clamp(3.4rem,14vw,6rem)/.9 "Bodoni Moda",Georgia,serif;letter-spacing:-.02em;font-weight:400}
+p{margin:12px 0 4px;color:#5a4f5b}
+form{display:flex;flex-direction:column;gap:12px;width:100%;margin-top:8px}
+input{font:inherit;text-align:center;padding:12px 14px;border:1px solid #e4dad5;background:#fdfbf9;color:inherit;border-radius:2px}
+input:focus{outline:2px solid #7a6180;outline-offset:2px}
+button{font:500 .78rem/1 Jost,system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;padding:15px;border:0;background:#241c25;color:#f8f3ee;border-radius:2px;cursor:pointer}
+.err{color:#b0522e;font-style:italic;margin:0}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}}
+@media (prefers-reduced-motion:reduce){main{animation:none}}
+</style></head><body><main>
+<span class="lady">Lady</span><h1>Margaret</h1>
+<p>This page is for family and friends for now.</p>
+<form method="post" action="/__enter"><label for="pw" style="position:absolute;left:-9999px">Password</label>
+<input id="pw" name="password" type="password" placeholder="Password" autocomplete="current-password" autofocus required>
+${wrong ? '<p class="err">That isn’t it. Try again.</p>' : ""}
+<button type="submit">Enter</button></form></main></body></html>`;
+  return new Response(html, { status, headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
 }
