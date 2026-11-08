@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+// To drop a poem, set "show": false on it in src/data/poems.json.
+import data from "../data/poems.json";
+const groups = data.groups
+  .map((g) => ({ ...g, poems: g.poems.filter((p) => p.show) }))
+  .filter((g) => g.poems.length);
+---
+<Base title="Poems · Margaret Stewart Kennedy-Cairns" description="Poems, songs and sketches by Margaret Stewart Kennedy-Cairns, from her notebooks.">
+  <Nav current="poems" />
+
+  <header class="col book-head">
+    <span class="lady">In her own words</span>
+    <h1>Poems</h1>
+    <p>{data.intro}</p>
+  </header>
+
+  <main class="col poems">
+    {groups.map((g) => (
+      <section class="poem-group">
+        <h2 class="group-name">{g.name}</h2>
+        {g.poems.map((p) => (
+          <article class="poem">
+            <h3>{p.title}</h3>
+            {p.date && <p class="poem-date">{p.date}</p>}
+            {p.blocks.map((b) =>
+              b.k === "verse" ? <p class="verse">{b.t}</p>
+              : b.k === "note" ? <p class="poem-note">{b.t}</p>
+              : <p class="poem-para">{b.t}</p>
+            )}
+          </article>
+        ))}
+      </section>
+    ))}
+  </main>
+
+  <footer class="col">
+    <p>Margaret Stewart Kennedy-Cairns · Glasgow 1929 · Montreal 2026</p>
+  </footer>
+</Base>

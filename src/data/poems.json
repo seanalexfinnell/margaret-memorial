@@ -1,0 +1,482 @@
+{
+ "intro": "Margaret wrote poems, songs and sketches all her life, in notebooks she signed simply “M.C.” She always said it would be nice if someone typed them up and published them. Here are some of them.",
+ "groups": [
+  {
+   "name": "Seasons",
+   "poems": [
+    {
+     "title": "An Autumn Window Scene",
+     "date": "Autumn 1984",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Trees whose branches\nbereft of autumn’s jewelled\ncolored leaves –\nstand forlorn\nlike tired dowagers\nwhose fading beauty\nstill haunts the memory\nof a glittering past\nwhere in the spring\nof youthful bloom\ngowned and bejewelled\nthey fluttered and danced.\nNow from bright and steely\nskies\nthe sun’s rays pause to\nmirror the falling, faded October\nleaves\nurged by winds\nto dance farewell\nand sleep on mother\nearth’s breast."
+      }
+     ]
+    },
+    {
+     "title": "Perfect Rose",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Cool and lovely she looks\nShe wears her crown of Royal red\nThe sunlight gleams\nOn her emerald dress"
+      },
+      {
+       "k": "verse",
+       "t": "She stands in beauty\nSupreme and stately\nHer presence glows\nAs only becomes\nThe perfect\nGod-created\nRose."
+      }
+     ]
+    },
+    {
+     "title": "Thinking on Nature – Spring",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "para",
+       "t": "The trees standing so still, like so many young and beautiful girls, wait in expectation of wearing their first couturier gown. Tender buds are showing promise of myriad hues of colour. Each blossoming tree will soon appear clothed in splendour, branching out to show off the original beauty of God’s own creation. And when the spotlight of sunshine emblazons them in all their glory, then the debutantes of nature, with nests of brilliant feathered plumes in their leafy green tresses, will shimmer when the soft whispering wind caresses their poetry."
+      },
+      {
+       "k": "para",
+       "t": "Such loveliness in nature, capturing in memory a vision so lovely – an image of God’s mind reflected – reminds us of God’s infinity!"
+      }
+     ]
+    },
+    {
+     "title": "From My Bedroom Window, Early Autumn",
+     "date": "Westmount, 1972",
+     "show": true,
+     "blocks": [
+      {
+       "k": "para",
+       "t": "Sitting – looking from my window at the wild beating rain – hurrying to quench the dried earth, the wind pushing against it, sending it to cleanse the houses and streets, to bathe the tired oak trees and wash the remaining orange and red leaves, clinging like children to their mothers’ apron strings. Oh, I would love to shed my clothes, leap from my window naked, drop down upon the lawn and let dripping rain water be raiment for my garment –"
+      },
+      {
+       "k": "verse",
+       "t": "rain!\nrain!\nrain!"
+      }
+     ]
+    },
+    {
+     "title": "Walking in the Park",
+     "date": "Westmount, 1965",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Rain is falling,\nLightning flashes sharp\nacross the sky.\nWet slaps of rain paint\ntrees and grass colourless –\nlike looking through wet\nwindow panes.\nThe sound is an anthem to\nmy ears.\nWet, soggy, clean, refreshing.\nIt nourishes my soul,\nwashing away the dark-\nness. I love rain –\nOceans,\nWell water,\nMelting ice.\nMaybe I even like\nme –"
+      }
+     ]
+    },
+    {
+     "title": "Rain",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "As the rain fell I stepped\nupon the lawn, squeezed\nmy bare toes through the\nblades of grass – and felt\nthem tickle the soles of\nmy feet.\nI joyfully stomped\nin the puddle and looked\ndown upon a rainbow.\nThen I saw my face –\nwhat a funny image I\nmake."
+      }
+     ]
+    },
+    {
+     "title": "Drought",
+     "date": "Early 1960s",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "The summer season glows\nwith nuclear heat."
+      },
+      {
+       "k": "verse",
+       "t": "Dry birch, ash-dipped leaves,\nParched and faded grass"
+      },
+      {
+       "k": "verse",
+       "t": "Great gnarled oaks\nNo longer quenched\nfrom tired earth’s breast"
+      },
+      {
+       "k": "verse",
+       "t": "Evening brings\nStars’ sightless eyes\nlooking down\nupon weeping willows –\nand stately elms,"
+      },
+      {
+       "k": "verse",
+       "t": "Whose drooping arms\nand thirsty limbs\nRemember mercy\nFrom weeping skies."
+      }
+     ]
+    },
+    {
+     "title": "Tomorrow",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Day will surely follow\nWhat morning’s sun\nhad promised –\nunfolding noon\nto entertain\nwith clear blue sky,\nsending down her friendly\nbreeze, to give the\nafternoon\na glow of anticipated\nwarmth.\nThen twilight intrudes\nwith faded beauty\nand enters night\nwhere stars chase\nthe day.\nNight draws open her velvet\ncurtains to\nreveal the silver moon,\na glorious stage of heavenly\nSTARS!"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Fun",
+   "poems": [
+    {
+     "title": "Princess Pudding",
+     "date": "June 1984",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Sly little pussy\nPretending to sleep\nPurring contentedly\nAll in a heap"
+      },
+      {
+       "k": "verse",
+       "t": "Robin flies down\nHops around\nOh! so fast\nChirping and pecking\nHis beak –\nin the grass"
+      },
+      {
+       "k": "verse",
+       "t": "Pussy’s stopped purring\nShe’s opened her eyes\nAnd spies little Robin\nPeck, pecking the grass"
+      },
+      {
+       "k": "verse",
+       "t": "And then sly little pussy\nIs just ready to pounce\nBut wee Robin\nHas flown to her nest –\njust in time"
+      },
+      {
+       "k": "verse",
+       "t": "So pussy decides\nIt is well\nTo settle down\nAnd dream of a house\nWhere lives a big fat mouse."
+      },
+      {
+       "k": "note",
+       "t": "Haughty Princess Pudding"
+      }
+     ]
+    },
+    {
+     "title": "Nonsense",
+     "date": "1987",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "The grass was purple, yellow,\nand pink,\nI wiggled my toes to feel them sink\nIn the warmth of the sponge-like\ntickly glink."
+      },
+      {
+       "k": "verse",
+       "t": "I laughed when Nature gave me\na drink\nOf a length of liquorice that\ntasted like… ink! Ugh!"
+      },
+      {
+       "k": "verse",
+       "t": "We floated like snowflakes\nAnd whirled like leaves\nWe bounced up and down\nWith the greatest of ease"
+      },
+      {
+       "k": "verse",
+       "t": "Large silver discs floated\nall around\nAs we watched them together\nHappy as clowns.\nBubbles gaily sailed by\nwhile we nibbled happily\non puffs of sugary sky."
+      },
+      {
+       "k": "verse",
+       "t": "It’s lovely to dream\nTo be imaginative\nand free\nAnd be anything you –\nand I ever want to be…\nSpecially me\nin my kaleidoscope tree."
+      }
+     ]
+    },
+    {
+     "title": "On Ice Cream",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "I delight in eating an ice cream cone\nEspecially\nVanilla parfait\nIn a dream chocolate base."
+      },
+      {
+       "k": "verse",
+       "t": "Each luscious lick\nOf heavenly taste\nI – mmmm\nWith contentment\nAnd gather with haste\nA tongue full\nWith such velvety\ntexture\nTo melt in my mouth\nWith ecstatic pleasure."
+      }
+     ]
+    },
+    {
+     "title": "Wishful Thinking",
+     "date": "May 1984",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "A friend just called\nTo say hello\nAnd talked of planting\nThings to grow"
+      },
+      {
+       "k": "verse",
+       "t": "Like acorn squash,\nAnd chilli peppers,\nTomatoes\nAnd Boston lettuce."
+      },
+      {
+       "k": "verse",
+       "t": "We talked at length\nOf lunches and dinners\nWe would put together\nFrom a garden well planted"
+      },
+      {
+       "k": "verse",
+       "t": "Of course – summer’s over\nAnd autumn’s upon us\nNext year – for sure!\nYou bet! —\nWe oughta."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Love",
+   "poems": [
+    {
+     "title": "A Brief Encounter",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "I met him in a café\non a cold and wintry day –\nwe stopped, my daughter Anthea\nand I,\nfor cappuccino to take the chill\naway."
+      },
+      {
+       "k": "verse",
+       "t": "I felt someone’s presence,\na gaze,\nand raised my eyes to find\nthis handsome stranger’s stare!\nOur eyes locked momentarily\nthen thoughtfully moved away,\nto see again the other’s\nin the mirror’s reflected gaze.\nWords were spoken briefly,\nlittle bits and pieces.\nHe was a visiting tourist,\nI was here to stay.\nI said goodbye\nand hoped he’d had\na very pleasant stay.\nHe smiled at me\nand said, “I’d really like to stay!”\nin a wistful kind of way."
+      }
+     ]
+    },
+    {
+     "title": "Chance Meeting – at the Ritz",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Looking across the table at him\nI observed the beauty of his profile,\nthe sensitive shape of his mouth,\nthe firm outline of his jaw."
+      },
+      {
+       "k": "verse",
+       "t": "He lowered his face and his lashes\nmade a fan-like impression\nclose to his cheekbones."
+      },
+      {
+       "k": "verse",
+       "t": "When he raised his head\nOur eyes met and held,\nLocked for an instant.\nTwo souls – knowing we were\ndestined to be one."
+      },
+      {
+       "k": "verse",
+       "t": "Later – nurturing him,\nI let my fingers lightly\nbrush against his eyelids,\nhis nose, his mouth.\nI seemed alive\nwith sensation."
+      },
+      {
+       "k": "verse",
+       "t": "My heart filled with desire.\nHe raised his hand,\nPulling my face towards his.\nOur lips met\nWith an urgency\nof primitive desire.\nOur minds became one.\nWaves of strong and tender\nlove washed over us\nencompassing completely\nmind and soul\nas one."
+      },
+      {
+       "k": "verse",
+       "t": "My thoughts – a\ndream, to stay, but not\nto be,\nbut a dream."
+      }
+     ]
+    },
+    {
+     "title": "About My Love",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "I love you, my beautiful man,\nYour tender warmth and\ncharming smile,\nThe way you hold me in your\narms\nAnd kiss my eyes and ears and\nmouth,\nThe way you walk,\nThe way you talk,\nEverything – and more –\nI adore –\nYou.\nMy beautiful man."
+      }
+     ]
+    },
+    {
+     "title": "Savouring Champagne",
+     "date": "Around 1984",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Clear,\nLiquid,\nDry and mellow."
+      },
+      {
+       "k": "verse",
+       "t": "My fingers curl\naround a long-\nstemmed glass\nBrought to my lips\nreverently"
+      },
+      {
+       "k": "verse",
+       "t": "Slowly savoured,\nand sipped, then\nlarger mouthfuls,\ngreedy mouth –\neager for exercise –\ndrink small, then\nlarge."
+      },
+      {
+       "k": "verse",
+       "t": "Warm friend\nembracing my\ninnards,\nOld friend of\na few summers’\nage."
+      }
+     ]
+    },
+    {
+     "title": "You",
+     "date": "1979",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "You looked at me\nI held your gaze;\nThe anvil of your mind\nForged my fate.\nThe mould is cast,\nTo last,\nForever."
+      }
+     ]
+    },
+    {
+     "title": "Don’t Walk Away",
+     "date": "A song, February 1982",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Give me a reason\nFor walking away\nGive me a season\nTo say what I may"
+      },
+      {
+       "k": "verse",
+       "t": "Tell me you need me\nAnd want me to stay\nDon’t turn your back\nAnd just walk away"
+      },
+      {
+       "k": "verse",
+       "t": "*Chorus:*\nI need a rainbow over my\nhead\nI need the sunshine\nTo warm me again\nI said I need the sunshine\nTo warm me again"
+      },
+      {
+       "k": "verse",
+       "t": "Together we’ll make it\nOne day at a time\nHold out your hand\nBaby, take mine"
+      },
+      {
+       "k": "verse",
+       "t": "I’ve searched long and\nhard\nTo find what I need\nJust say you love me\nDon’t walk away."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Herself",
+   "poems": [
+    {
+     "title": "Who Am I!",
+     "date": "1961",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Who am I!\nWhere am I going!\nI am flesh and bones –\nI have a rendezvous\nwith the future –\nExperience is my teacher."
+      }
+     ]
+    },
+    {
+     "title": "Depressed",
+     "date": "1958",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Why do I feel this vast\nemptiness around me\nThat fills me with sadness\nfor ambitions unfulfilled?"
+      },
+      {
+       "k": "verse",
+       "t": "I am gorged with unspoken\nand unwritten words."
+      },
+      {
+       "k": "verse",
+       "t": "Tentacles bind my mind\nand reach down through breast,\nand belly, and bowels."
+      },
+      {
+       "k": "verse",
+       "t": "I touch and do not feel,\nI move and go nowhere.\nI am warm flesh\nAnd cold bones."
+      }
+     ]
+    },
+    {
+     "title": "Tea with Gran",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "para",
+       "t": "Grandma Kennedy always reminds me of warmth and love, cups of tea served in fine bone china cups, little tea plates edged in gold, lace tablecloths, small dainty hand-embroidered flowered napkins, and lots and lots of broken biscuits served on a large blue delphinium plate."
+      },
+      {
+       "k": "para",
+       "t": "Sitting in her rocking chair in front of the fireplace, her feet resting on the polished brass fender, spectacles lying halfway down her nose, her long black silk dress, shiny with age, spread upon her lap, a delicate white embroidered apron where her hands lay clasped together, as if always in prayer."
+      },
+      {
+       "k": "para",
+       "t": "The kettle would sing upon the hearth and Grandma would awake from her little nap, stretch over and remove the singing kettle from the coals, laying it down on the shiny brass trivet upon the table. She would then remove the hand-knitted tea cosy which had kept the silver teapot warm. From a dark Chinese painted tea caddy she would take four teaspoons of loose Indian tea and put them into the teapot, then pour from the still slightly singing kettle, filling the teapot for four cups."
+      },
+      {
+       "k": "para",
+       "t": "While waiting for the tea to brew, I was allowed to choose as many broken biscuits as I wanted. Grandma Kennedy knew I loved to pick through the wonderful assortment of biscuits. Sometimes I would find whole ones, but those I put aside for Gran and Aunt Ella, who would occasionally join us for tea. But best of all would be when just Gran and me would have our very special teatime. I would feel very special."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Her children",
+   "poems": [
+    {
+     "title": "Anthea",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Anthea – Anthea, strange she is mine\nHer wisdom,\nHer ways are surely divine\nKnows all and sees all\nNo truth can be hidden\nFrom Anthea, sweet Anthea,\nSent down from Heaven."
+      },
+      {
+       "k": "verse",
+       "t": "A tiny girl, an eager child,\nA woman born\nShe is mine – all mine\nI love her so\nEach day she knows\nI love her more"
+      },
+      {
+       "k": "verse",
+       "t": "Special is the mind that grows\ninside this child of mine\nGod help her in the paths she\ntakes, to find a way of life\nI wish her endless happiness\nAll the pleasures she can find\nAnd every blessing from above\nFor this little one\nI love so very much."
+      }
+     ]
+    },
+    {
+     "title": "For My Son Paul",
+     "date": "August 1978",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "I dream my dreams\nAnd sing my songs\nOf love and joy\nI’ve known"
+      },
+      {
+       "k": "verse",
+       "t": "I dream of walking\nOn the sand\nAnd see the seagulls soar,\nWhile the endless\nwaters of the sea\nQuietly speak to me –"
+      },
+      {
+       "k": "verse",
+       "t": "Of Paul\nMy son\nWhose journey\nIs to find\nHis island in the sun"
+      },
+      {
+       "k": "verse",
+       "t": "I know his dreams\nAnd mine\nWill all come true –\nHe will write his songs"
+      },
+      {
+       "k": "verse",
+       "t": "Dearest Paul\nMy son\nMy boy\nHe will conquer\nall."
+      }
+     ]
+    },
+    {
+     "title": "Paul",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Thank you God\nFor giving me\nA son –\nSo noble\nSo true"
+      },
+      {
+       "k": "verse",
+       "t": "A baby boy\nA man at birth\nA tall and mighty tree\nHe sheds his sunshine\nAll around\nTo help humanity"
+      },
+      {
+       "k": "verse",
+       "t": "Thank you God\nFor blessing me\nWith endless bounty, full.\nMy children – your children –\nAre my gifts\nOf life\nSent from\nThee\nTo me."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

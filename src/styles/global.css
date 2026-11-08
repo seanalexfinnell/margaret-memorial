@@ -207,3 +207,14 @@ footer p { font: 500 0.66rem/1.6 var(--f-label); letter-spacing: 0.22em; text-tr
 .tune.is-playing .tune-bar, .tune.has-progress .tune-bar { opacity: 1; }
 .tune-bar span { display: block; height: 100%; background: var(--gilt); transform: scaleX(0); transform-origin: left; transition: transform 0.25s linear; }
 .prose .sep { text-align: center; color: var(--heather); letter-spacing: 0.6em; margin: 2.4em 0; }
+
+/* ---------- poems ---------- */
+.poems { padding-block: clamp(24px, 4vw, 48px) clamp(64px, 10vw, 120px); }
+.poem-group { padding-top: clamp(40px, 7vw, 80px); }
+.group-name { margin: 0 0 clamp(28px, 5vw, 48px); font: 500 0.78rem/1 var(--f-label); letter-spacing: 0.22em; text-transform: uppercase; color: var(--heather); text-align: center; }
+.poem { display: flex; flex-direction: column; gap: 1.1em; padding-bottom: clamp(48px, 8vw, 88px); }
+.poem h3 { font: 400 clamp(1.5rem, 3vw, 2rem)/1.2 var(--f-display); }
+.poem .poem-date { margin-top: -0.7em; font: italic 400 0.95em/1.3 var(--f-body); color: var(--ink-soft); }
+.poem .verse { white-space: pre-line; }
+.poem .poem-para { text-wrap: pretty; }
+.poem .poem-note { font-style: italic; color: var(--ink-soft); }
