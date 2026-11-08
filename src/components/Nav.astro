@@ -3,7 +3,7 @@
 interface Props { current: "obituary" | "memories" | "poems" }
 const { current } = Astro.props;
 ---
-<nav class="site-nav" aria-label="Site">
+<nav class="site-nav" aria-label="Site" transition:persist="site-nav">
   <a href="/" aria-current={current === "obituary" ? "page" : undefined}>Obituary</a>
   <a href="/memories" aria-current={current === "memories" ? "page" : undefined}>Memory book</a>
   <a href="/selected-works" aria-current={current === "poems" ? "page" : undefined}>Selected works</a>

@@ -225,8 +225,9 @@ footer p { font: 500 0.66rem/1.6 var(--f-label); letter-spacing: 0.22em; text-tr
 .book-head p { margin-top: clamp(14px, 2.4vw, 26px); }
 
 /* ---------- page transitions: the page lifts away, the next one settles in; the nav and title hold their place ---------- */
-@view-transition { navigation: auto; }
 .site-nav { view-transition-name: site-nav; }
+.tune { view-transition-name: tune; }
+::view-transition-group(tune) { animation: none; }
 .cover-title h1, .book-head h1 { view-transition-name: page-title; }
 .cover-title .lady, .book-head .lady { view-transition-name: page-kicker; }
 ::view-transition-group(site-nav) { animation: none; }

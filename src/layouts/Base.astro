@@ -1,9 +1,12 @@
 ---
 import "../styles/global.css";
-interface Props { title: string; description?: string; noindex?: boolean }
+import { ClientRouter } from "astro:transitions";
+import Tune from "../components/Tune.astro";
+interface Props { title: string; description?: string; noindex?: boolean; tune?: boolean }
 const {
   title,
   description = "Remembering Margaret Stewart Kennedy-Cairns, 1929 to 2026. Glasgow, Montreal, and everywhere she made an impression.",
+  tune = true, // the pipe tune player; it persists across pages so the music keeps playing
   noindex = true, // the family hasn't decided yet; flip to false to let search engines list the site
 } = Astro.props;
 ---
@@ -18,7 +21,6 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta name="theme-color" content="#f8f3ee" />
-    <script is:inline>addEventListener("pagereveal", (e) => { if (e.viewTransition) document.documentElement.dataset.vt = "1"; });</script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,8 +28,10 @@ const {
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500&display=swap"
     />
+    <ClientRouter />
   </head>
   <body>
     <slot />
+    {tune && <Tune />}
   </body>
 </html>
