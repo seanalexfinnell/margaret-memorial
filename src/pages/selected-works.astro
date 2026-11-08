@@ -26,6 +26,7 @@ const groups = data.groups
             {p.date && <p class="poem-date">{p.date}</p>}
             {p.blocks.map((b) =>
               b.k === "verse" ? <p class="verse">{b.t}</p>
+              : b.k === "chorus" ? <p class="verse chorus">{b.t}</p>
               : b.k === "note" ? <p class="poem-note">{b.t}</p>
               : <p class="poem-para">{b.t}</p>
             )}

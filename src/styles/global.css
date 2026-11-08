@@ -218,3 +218,4 @@ footer p { font: 500 0.66rem/1.6 var(--f-label); letter-spacing: 0.22em; text-tr
 .poem .verse { white-space: pre-line; }
 .poem .poem-para { text-wrap: pretty; }
 .poem .poem-note { font-style: italic; color: var(--ink-soft); }
+.poem .chorus { font-style: italic; padding-left: 1.2em; }
