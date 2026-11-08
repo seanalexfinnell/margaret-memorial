@@ -393,6 +393,21 @@
      ]
     },
     {
+     "title": "Upon My Bed",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Upon my bed,\nthis ailing flesh\nI seem to be,\nturns my thoughts to God.\nAmidst the plants\nthat grace my room\nI look upon the beauty\nof the red-flamed\nChristmas plant,\nwhose living bloom and dancing colour\nspeak of life,\nof sun and moon and STARS."
+      },
+      {
+       "k": "verse",
+       "t": "Dear God, whose face I long to see –\nyet – not – just yet,\nuntil I’ve walked again that\nsandy road\nwhere perfumed flowers fill the\nair\nand feathered friends accompany me."
+      }
+     ]
+    },
+    {
      "title": "The Hudson at Sunset",
      "date": "New York",
      "show": true,
@@ -447,6 +462,29 @@
       {
        "k": "para",
        "t": "Such loveliness in nature, capturing in memory a vision so lovely – an image of God’s mind reflected – reminds us of God’s infinity!"
+      }
+     ]
+    },
+    {
+     "title": "Fluttering Leaves",
+     "date": "October 1993",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Fluttering leaves on winter trees,\nimpatient to be gone\nfrom branch and limb\nwhere they have spent their\nsummer, autumn days!"
+      },
+      {
+       "k": "verse",
+       "t": "Sheltering many little birds\nwhose nests are built\non outstretched limbs,\nwhose radiant leaves give shade\nand fan with cooling breeze\nthe new-hatched babies,\nwhich twirp and cheep\nin perfect harmony."
+      },
+      {
+       "k": "verse",
+       "t": "Pretty birds, now full grown,\nhave flown to sunnier climes,\nleaving behind their empty nests\nwhere squirrels climb the tree\nto peek inside."
+      },
+      {
+       "k": "verse",
+       "t": "A gusty, friendly wind\nblows the impatient leaves,\nhelps them\nfall safely to the ground,\nthen takes them on a\nwhirlwind tour\nwhere they have never been before!"
       }
      ]
     },
