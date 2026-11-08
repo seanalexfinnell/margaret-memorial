@@ -236,6 +236,29 @@
      ]
     },
     {
+     "title": "Bon Appétit",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Let the diet go free,\ndo not imprison me –\nah! my dream to\nbe, to indulge again\nin myriad forms\nthe soul-satisfying\ngoodies\ncraving\nto be mine."
+      },
+      {
+       "k": "verse",
+       "t": "Flowers and birds,\ntrees and grass,\nchildren’s laughter\nis all –\nI’m –\nafter!"
+      },
+      {
+       "k": "verse",
+       "t": "English scones and jam,\nSwiss chocolate torte,\nIrish soda bread,\nDundee cake,\nScottish shortbread,\nItalian apple cake,\ncappuccino coffee,\nFrench pastry,\ncreamiest ice cream."
+      },
+      {
+       "k": "verse",
+       "t": "Like a little child\nI dream!!\nLike an adult\nI crave!"
+      }
+     ]
+    },
+    {
      "title": "On Ice Cream",
      "date": null,
      "show": true,
@@ -328,6 +351,55 @@
       {
        "k": "note",
        "t": "Haughty Princess Pudding"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Places",
+   "poems": [
+    {
+     "title": "In Bermuda",
+     "date": "Bermuda, 1985",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "Filled with awe\nI stand gazing\nupward\nupon a breadth of sweeping\nsky\nwhose colours paint\na scene of myriad beauty –\nunfolding in mind\na rich Arabian delight –\npale desert sand\nand flame-coloured silk\nshot with gold, and Persian\npaisley\nblazing with the\ndipping sun\nat eventide.\nA mind’s portrait of Thought\nidentified!"
+      }
+     ]
+    },
+    {
+     "title": "Ah Bermuda!",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "A winding road,\na tree-lined lane,\na cottage pink,\na weatherbeaten garden gate,\na stretch of flowering\noleander hedge\nwhose perfume fills\nthe still, calm air.\nA melody of feathered friends\ngreets me\nwhen I round the bend.\nI gaze upon the\nshimmering sea\nwhere sailing craft\nis beckoning me.\nAh Bermuda!\nWhere I long to be."
+      }
+     ]
+    },
+    {
+     "title": "My Island – Bermuda",
+     "date": null,
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "To leave the cold and\nfreezing city,\nice-clad streets,\npotholes, smelly\ncity buses\nwhere bodies muffled\nsit or stand,\nso worn and weary\nof wintertime.\nTo go where sun\nand sea\nis all the land\nI wish for me,\nwhere I can walk\nand breathe\nthe clean fresh smell\nof flower and sea.\nMy Island – Bermuda,\nI’m longing\nfor thee."
+      }
+     ]
+    },
+    {
+     "title": "The Hudson at Sunset",
+     "date": "New York",
+     "show": true,
+     "blocks": [
+      {
+       "k": "verse",
+       "t": "I look from my window\nand gaze out\nupon the beauty of a sunset’s\nfading glory,\nthe Hudson River below\nreflecting pomegranate hues,\nshimmering and sparkling\nwith mirrored light\nfrom condos, lights,\nwhich seem to touch\nthe hem of sky.\nIs there a God!\nIs there a doubt!\nWho but omnipotent Mind\ncreates such beauty –\nperfect.\nFills a mortal thought\nto drink\nthe solitary scene\nwhich encompasses near\nour Maker God,\nunseen –\nyet seen\nin scene."
       }
      ]
     }
