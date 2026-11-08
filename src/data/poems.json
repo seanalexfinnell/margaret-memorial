@@ -398,8 +398,12 @@
        "t": "Tell me you need me\nAnd want me to stay\nDon’t turn your back\nAnd just walk away"
       },
       {
-       "k": "verse",
-       "t": "*Chorus:*\nI need a rainbow over my\nhead\nI need the sunshine\nTo warm me again\nI said I need the sunshine\nTo warm me again"
+       "k": "note",
+       "t": "Chorus"
+      },
+      {
+       "k": "chorus",
+       "t": "I need a rainbow over my\nhead\nI need the sunshine\nTo warm me again\nI said I need the sunshine\nTo warm me again"
       },
       {
        "k": "verse",
