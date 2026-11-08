@@ -224,14 +224,17 @@ footer p { font: 500 0.66rem/1.6 var(--f-label); letter-spacing: 0.22em; text-tr
 .cover-title .lady, .book-head .lady { margin-bottom: -10px; }
 .book-head p { margin-top: clamp(14px, 2.4vw, 26px); }
 
-/* ---------- page transitions: a quick, quiet cross-fade; each page's own intro does the rest ---------- */
+/* ---------- page transitions: the page lifts away, the next one settles in; the nav and title hold their place ---------- */
 @view-transition { navigation: auto; }
 .site-nav { view-transition-name: site-nav; }
+.cover-title h1, .book-head h1 { view-transition-name: page-title; }
+.cover-title .lady, .book-head .lady { view-transition-name: page-kicker; }
 ::view-transition-group(site-nav) { animation: none; }
-::view-transition-old(root) { animation: vt-fade-out 0.22s ease-out both; }
-::view-transition-new(root) { animation: vt-fade-in 0.32s ease-in 0.08s both; }
-@keyframes vt-fade-out { to { opacity: 0; } }
-@keyframes vt-fade-in { from { opacity: 0; } }
+::view-transition-old(root) { animation: vt-out 0.42s cubic-bezier(0.4, 0, 0.2, 1) both; }
+::view-transition-new(root) { animation: vt-in 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) 0.12s both; }
+::view-transition-group(page-title), ::view-transition-group(page-kicker) { animation-duration: 0.7s; animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1); }
+@keyframes vt-out { to { opacity: 0; transform: translateY(-16px); filter: blur(3px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(20px); } }
 
 /* Intro on the book and works pages: kicker, title, line, then the content. */
 .book-head > *, .book-head ~ main { animation: rise-in 0.95s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
