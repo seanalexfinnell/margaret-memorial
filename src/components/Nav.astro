@@ -6,7 +6,7 @@ const { current } = Astro.props;
 <nav class="site-nav" aria-label="Site">
   <a href="/" aria-current={current === "obituary" ? "page" : undefined}>Obituary</a>
   <a href="/memories" aria-current={current === "memories" ? "page" : undefined}>Memory book</a>
-  <a href="/poems" aria-current={current === "poems" ? "page" : undefined}>Poems</a>
+  <a href="/selected-works" aria-current={current === "poems" ? "page" : undefined}>Selected works</a>
 </nav>
 <script>
   import "../scripts/nav.ts";

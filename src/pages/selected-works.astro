@@ -7,12 +7,12 @@ const groups = data.groups
   .map((g) => ({ ...g, poems: g.poems.filter((p) => p.show) }))
   .filter((g) => g.poems.length);
 ---
-<Base title="Poems · Margaret Stewart Kennedy-Cairns" description="Poems, songs and sketches by Margaret Stewart Kennedy-Cairns, from her notebooks.">
+<Base title="Selected Works · Margaret Stewart Kennedy-Cairns" description="Poems, songs and sketches by Margaret Stewart Kennedy-Cairns, from her notebooks.">
   <Nav current="poems" />
 
   <header class="col book-head">
     <span class="lady">In her own words</span>
-    <h1>Poems</h1>
+    <h1>Selected Works</h1>
     <p>{data.intro}</p>
   </header>
 
