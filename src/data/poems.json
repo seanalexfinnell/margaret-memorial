@@ -95,7 +95,7 @@
     {
      "title": "Perfect Rose",
      "date": null,
-     "show": true,
+     "show": false,
      "blocks": [
       {
        "k": "verse",
@@ -137,7 +137,7 @@
     {
      "title": "Tomorrow",
      "date": null,
-     "show": true,
+     "show": false,
      "blocks": [
       {
        "k": "verse",
